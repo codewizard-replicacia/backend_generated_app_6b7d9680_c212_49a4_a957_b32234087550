@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Model">
+            <EntityType HasStream="false" Name="PreviousCompany">
+                <Key>
+                    <PropertyRef Name="PrevCompanyID"/>
+                </Key>
+                <Property Name="Name" Type="Edm.String"/>
+                <Property Name="FromDate" Type="Edm.Date"/>
+                <Property Name="ToDate" Type="Edm.Date"/>
+                <Property Name="Title" Type="Edm.String"/>
+                <Property Name="EmploymentType" Type="Edm.Boolean"/>
+                <Property Name="PrevCompanyID" Type="Edm.Int32"/>
+            </EntityType>
+            <EntityType HasStream="false" Name="PerformanceAppraisal">
+                <Key>
+                    <PropertyRef Name="EmpID"/>
+                </Key>
+                <Property Name="FromDate" Type="Edm.Date"/>
+                <Property Name="ToDate" Type="Edm.Date"/>
+                <Property Name="WhatIWorkedFor" Type="Edm.String"/>
+                <Property Name="WhatILearned" Type="Edm.String"/>
+                <Property Name="LearnedFromTeam" Type="Edm.String"/>
+                <Property Name="WhatIGaveToTeam" Type="Edm.String"/>
+                <Property Name="HikePercentage" Type="Edm.String"/>
+                <Property Name="AppraisalReceived" Type="Edm.String"/>
+                <Property Name="AwardsReceived" Type="Edm.String"/>
+                <Property Name="EmpID" Type="Edm.Int32"/>
+            </EntityType>
+            <EntityType HasStream="false" Name="Organization">
+                <Key>
+                    <PropertyRef Name="OrganizationID"/>
+                </Key>
+                <Property Name="OrganizationID" Type="Edm.Int32"/>
+                <Property Name="AboutOrganization" Type="Edm.String"/>
+                <Property Name="OrganzationMissionVision" Type="Edm.String"/>
+                <Property Name="OrganizationValues" Type="Edm.String"/>
+                <NavigationProperty Name="Employees" Type="Collection(Model.EmlpoyeeProfile)"/>
+            </EntityType>
+            <EntityType HasStream="false" Name="Trainings">
+                <Key>
+                    <PropertyRef Name="TrainingID"/>
+                </Key>
+                <Property Name="MandatoryTrainings" Type="Edm.String"/>
+                <Property Name="OrgCompleteBy" Type="Edm.Date"/>
+                <Property Name="MandatoryTechnicaltrainings" Type="Edm.String"/>
+                <Property Name="TechCompleteBy" Type="Edm.Date"/>
+                <Property Name="WorkshopAttended" Type="Edm.String"/>
+                <Property Name="TrainingID" Type="Edm.Int32"/>
+            </EntityType>
+            <EntityType HasStream="false" Name="EmployeePersonalInfo">
+                <Key>
+                    <PropertyRef Name="EmpID"/>
+                </Key>
+                <Property Name="EmpID" Type="Edm.Int32"/>
+                <Property Name="EmployeeFullName" Type="Edm.String"/>
+                <Property Name="Gender" Type="Edm.Boolean"/>
+                <Property Name="DOB" Type="Edm.Date"/>
+                <Property Name="PhoneNumber" Type="Edm.Int64"/>
+                <Property Name="EmailID" Type="Edm.String"/>
+                <Property Name="Native" Type="Edm.String"/>
+                <Property Name="LaguagesKnown" Type="Edm.String"/>
+            </EntityType>
+            <EntityType HasStream="false" Name="EmploymentInformation">
+                <Key>
+                    <PropertyRef Name="JobID"/>
+                </Key>
+                <Property Name="JobTitle" Type="Edm.String"/>
+                <Property Name="Department" Type="Edm.String"/>
+                <Property Name="ReportingManager" Type="Edm.String"/>
+                <Property Name="DOJ" Type="Edm.String"/>
+                <Property Name="EmploymentType" Type="Edm.Boolean"/>
+                <Property Name="Country" Type="Edm.String"/>
+                <Property Name="State" Type="Edm.String"/>
+                <Property Name="YearsOfExperience" Type="Edm.Int32"/>
+                <Property Name="JobID" Type="Edm.Int32"/>
+            </EntityType>
+            <EntityType HasStream="false" Name="EmergencyContactInfo">
+                <Key>
+                    <PropertyRef Name="EmpID"/>
+                </Key>
+                <Property Name="EmpID" Type="Edm.Int32"/>
+                <Property Name="EmergencyContactPerson" Type="Edm.String"/>
+                <Property Name="Relation" Type="Edm.String"/>
+                <Property Name="PhoneNumber" Type="Edm.Int64"/>
+            </EntityType>
+            <EntityType HasStream="false" Name="SkillsAndCompetencies">
+                <Key>
+                    <PropertyRef Name="CertificationID"/>
+                </Key>
+                <Property Name="TechnicalSkill" Type="Edm.String"/>
+                <Property Name="Certifications" Type="Edm.String"/>
+                <Property Name="CertificationID" Type="Edm.Int32"/>
+            </EntityType>
+            <EntityType HasStream="false" Name="EducationalBG">
+                <Key>
+                    <PropertyRef Name="EmpID"/>
+                </Key>
+                <Property Name="RecentGraduation" Type="Edm.Boolean"/>
+                <Property Name="CertificatesVerifiedDate" Type="Edm.Date"/>
+                <Property Name="RelevantCourses" Type="Edm.String"/>
+                <Property Name="EmpID" Type="Edm.Int32"/>
+            </EntityType>
+            <EntityType HasStream="false" Name="EmlpoyeeProfile">
+                <Key>
+                    <PropertyRef Name="EmpID"/>
+                </Key>
+                <Property Name="EmpID" Type="Edm.Int32"/>
+                <Property Name="EmpName" Type="Edm.String"/>
+                <Property Name="EmpEmailID" Type="Edm.String"/>
+                <Property Name="EmpPhoto" Type="Edm.String"/>
+                <Property Name="Details" Type="Edm.String"/>
+                <NavigationProperty Name="Experience" Type="Collection(Model.PreviousCompany)"/>
+                <NavigationProperty Name="PersonalInformation" Type="Model.EmployeePersonalInfo"/>
+                <NavigationProperty Name="Employeedetails" Type="Model.EmploymentInformation"/>
+                <NavigationProperty Name="EducationDetails" Type="Model.EducationalBG"/>
+                <NavigationProperty Name="Skillset" Type="Collection(Model.SkillsAndCompetencies)"/>
+                <NavigationProperty Name="Performance" Type="Collection(Model.PerformanceAppraisal)"/>
+                <NavigationProperty Name="EmergencyReachout" Type="Model.EmergencyContactInfo"/>
+                <NavigationProperty Name="OrgProvidedTrainings" Type="Collection(Model.Trainings)"/>
+            </EntityType>
+            <EntityContainer Name="Container">
+                <EntitySet Name="PreviousCompanies" EntityType="Model.PreviousCompany"/>
+                <EntitySet Name="PerformanceAppraisals" EntityType="Model.PerformanceAppraisal"/>
+                <EntitySet Name="Organizations" EntityType="Model.Organization">
+                    <NavigationPropertyBinding Path="Employees" Target="EmlpoyeeProfiles"/>
+                </EntitySet>
+                <EntitySet Name="Trainings" EntityType="Model.Trainings"/>
+                <EntitySet Name="EmployeePersonalInfoes" EntityType="Model.EmployeePersonalInfo"/>
+                <EntitySet Name="EmploymentInformations" EntityType="Model.EmploymentInformation"/>
+                <EntitySet Name="EmergencyContactInfoes" EntityType="Model.EmergencyContactInfo"/>
+                <EntitySet Name="SkillsAndCompetencies" EntityType="Model.SkillsAndCompetencies"/>
+                <EntitySet Name="EducationalBGs" EntityType="Model.EducationalBG"/>
+                <EntitySet Name="EmlpoyeeProfiles" EntityType="Model.EmlpoyeeProfile">
+                    <NavigationPropertyBinding Path="Experience" Target="PreviousCompanies"/>
+                    <NavigationPropertyBinding Path="PersonalInformation" Target="EmployeePersonalInfoes"/>
+                    <NavigationPropertyBinding Path="Employeedetails" Target="EmploymentInformations"/>
+                    <NavigationPropertyBinding Path="EducationDetails" Target="EducationalBGs"/>
+                    <NavigationPropertyBinding Path="Skillset" Target="SkillsAndCompetencies"/>
+                    <NavigationPropertyBinding Path="Performance" Target="PerformanceAppraisals"/>
+                    <NavigationPropertyBinding Path="EmergencyReachout" Target="EmergencyContactInfoes"/>
+                    <NavigationPropertyBinding Path="OrgProvidedTrainings" Target="Trainings"/>
+                </EntitySet>
+            </EntityContainer>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

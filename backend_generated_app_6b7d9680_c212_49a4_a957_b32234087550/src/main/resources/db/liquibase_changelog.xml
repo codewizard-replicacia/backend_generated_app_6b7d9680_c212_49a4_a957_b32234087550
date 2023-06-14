@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+		http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <property name="schemaName" value="generated_app"></property>
+    <property name="author=" value="db-designer"></property>
+    <changeSet id="v1-01-01" author="${author}">
+    
+ <createTable schemaName="${schemaName}" tableName="PerformanceAppraisal">
+    <column name="FromDate" type="DATE" />
+    
+     <column name="ToDate" type="DATE" />
+    
+     <column name="WhatIWorkedFor" type="VARCHAR(250)" />
+    
+     <column name="WhatILearned" type="VARCHAR(250)" />
+    
+     <column name="LearnedFromTeam" type="VARCHAR(250)" />
+    
+     <column name="WhatIGaveToTeam" type="VARCHAR(250)" />
+    
+     <column name="HikePercentage" type="VARCHAR(250)" />
+    
+     <column name="AppraisalReceived" type="VARCHAR(250)" />
+    
+     <column name="AwardsReceived" type="VARCHAR(250)" />
+    
+ 	<column name="EmpID" type="SERIAL" autoIncrement="true" >
+        <constraints nullable="false" primaryKey="true"/>
+    </column>
+ 	
+</createTable>
+ <createTable schemaName="${schemaName}" tableName="Organization">
+	<column name="OrganizationID" type="SERIAL" autoIncrement="true" >
+        <constraints nullable="false" primaryKey="true"/>
+    </column>
+     <column name="AboutOrganization" type="VARCHAR(250)" />
+    
+     <column name="OrganzationMissionVision" type="VARCHAR(250)" />
+    
+     <column name="OrganizationValues" type="VARCHAR(250)" />
+    
+ 	
+</createTable>
+ <createTable schemaName="${schemaName}" tableName="EmployeePersonalInfo">
+	<column name="EmpID" type="SERIAL" autoIncrement="true" >
+        <constraints nullable="false" primaryKey="true"/>
+    </column>
+     <column name="EmployeeFullName" type="VARCHAR(250)" />
+    
+     <column name="Gender" type="BOOLEAN" />
+    
+     <column name="DOB" type="DATE" />
+    
+     <column name="PhoneNumber" type="INTEGER" />
+    
+     <column name="EmailID" type="VARCHAR(250)" />
+    
+     <column name="Native" type="VARCHAR(250)" />
+    
+     <column name="LaguagesKnown" type="VARCHAR(250)" />
+    
+ 	
+</createTable>
+ <createTable schemaName="${schemaName}" tableName="EducationalBG">
+    <column name="RecentGraduation" type="BOOLEAN" />
+    
+     <column name="CertificatesVerifiedDate" type="DATE" />
+    
+     <column name="RelevantCourses" type="VARCHAR(250)" />
+    
+ 	<column name="EmpID" type="SERIAL" autoIncrement="true" >
+        <constraints nullable="false" primaryKey="true"/>
+    </column>
+ 	
+</createTable>
+ <createTable schemaName="${schemaName}" tableName="SkillsAndCompetencies">
+    <column name="TechnicalSkill" type="VARCHAR(250)" />
+    
+     <column name="Certifications" type="VARCHAR(250)" />
+    
+ 	<column name="CertificationID" type="SERIAL" autoIncrement="true" >
+        <constraints nullable="false" primaryKey="true"/>
+    </column>
+ 	
+</createTable>
+ <createTable schemaName="${schemaName}" tableName="Trainings">
+    <column name="MandatoryTrainings" type="VARCHAR(250)" />
+    
+     <column name="OrgCompleteBy" type="DATE" />
+    
+     <column name="MandatoryTechnicaltrainings" type="VARCHAR(250)" />
+    
+     <column name="TechCompleteBy" type="DATE" />
+    
+     <column name="WorkshopAttended" type="VARCHAR(250)" />
+    
+ 	<column name="TrainingID" type="SERIAL" autoIncrement="true" >
+        <constraints nullable="false" primaryKey="true"/>
+    </column>
+ 	
+</createTable>
+ <createTable schemaName="${schemaName}" tableName="EmploymentInformation">
+    <column name="JobTitle" type="VARCHAR(250)" />
+    
+     <column name="Department" type="VARCHAR(250)" />
+    
+     <column name="ReportingManager" type="VARCHAR(250)" />
+    
+     <column name="DOJ" type="VARCHAR(250)" />
+    
+     <column name="EmploymentType" type="BOOLEAN" />
+    
+     <column name="Country" type="VARCHAR(250)" />
+    
+     <column name="State" type="VARCHAR(250)" />
+    
+     <column name="YearsOfExperience" type="SERIAL" />
+    
+ 	<column name="JobID" type="SERIAL" autoIncrement="true" >
+        <constraints nullable="false" primaryKey="true"/>
+    </column>
+ 	
+</createTable>
+ <createTable schemaName="${schemaName}" tableName="EmlpoyeeProfile">
+	<column name="EmpID" type="SERIAL" autoIncrement="true" >
+        <constraints nullable="false" primaryKey="true"/>
+    </column>
+     <column name="EmpName" type="VARCHAR(250)" />
+    
+     <column name="EmpEmailID" type="VARCHAR(250)" />
+    
+     <column name="EmpPhoto" type="VARCHAR(250)" />
+    
+     <column name="Details" type="VARCHAR(250)" />
+    
+ 	
+</createTable>
+ <createTable schemaName="${schemaName}" tableName="PreviousCompany">
+    <column name="Name" type="VARCHAR(250)" />
+    
+     <column name="FromDate" type="DATE" />
+    
+     <column name="ToDate" type="DATE" />
+    
+     <column name="Title" type="VARCHAR(250)" />
+    
+     <column name="EmploymentType" type="BOOLEAN" />
+    
+ 	<column name="PrevCompanyID" type="SERIAL" autoIncrement="true" >
+        <constraints nullable="false" primaryKey="true"/>
+    </column>
+ 	
+</createTable>
+ <createTable schemaName="${schemaName}" tableName="EmergencyContactInfo">
+	<column name="EmpID" type="SERIAL" autoIncrement="true" >
+        <constraints nullable="false" primaryKey="true"/>
+    </column>
+     <column name="EmergencyContactPerson" type="VARCHAR(250)" />
+    
+     <column name="Relation" type="VARCHAR(250)" />
+    
+     <column name="PhoneNumber" type="INTEGER" />
+    
+ 	
+</createTable>
+	
+  <createTable schemaName="${schemaName}" tableName="OrganizationEmployees">
+	<column name="Id" type="SERIAL" autoIncrement="true">
+		<constraints primaryKey="true" nullable="false"/>
+	</column>
+	<column name="OrganizationID" type="SERIAL" />
+	<column name="EmpID" type="SERIAL" />
+</createTable>
+  <createTable schemaName="${schemaName}" tableName="EmlpoyeeProfileSkillset">
+	<column name="Id" type="SERIAL" autoIncrement="true">
+		<constraints primaryKey="true" nullable="false"/>
+	</column>
+	<column name="EmpID" type="SERIAL" />
+	<column name="CertificationID" type="SERIAL" />
+</createTable>
+  <createTable schemaName="${schemaName}" tableName="EmlpoyeeProfileOrgProvidedTrainings">
+	<column name="Id" type="SERIAL" autoIncrement="true">
+		<constraints primaryKey="true" nullable="false"/>
+	</column>
+	<column name="EmpID" type="SERIAL" />
+	<column name="TrainingID" type="SERIAL" />
+</createTable>
+  <createTable schemaName="${schemaName}" tableName="EmlpoyeeProfileExperience">
+	<column name="Id" type="SERIAL" autoIncrement="true">
+		<constraints primaryKey="true" nullable="false"/>
+	</column>
+	<column name="EmpID" type="SERIAL" />
+	<column name="PrevCompanyID" type="SERIAL" />
+</createTable>
+  <createTable schemaName="${schemaName}" tableName="EmlpoyeeProfilePerformance">
+	<column name="Id" type="SERIAL" autoIncrement="true">
+		<constraints primaryKey="true" nullable="false"/>
+	</column>
+	<column name="EmpID" type="SERIAL" />
+	<column name="EmpID" type="SERIAL" />
+</createTable>
+
+ 	<addForeignKeyConstraint baseTableName="OrganizationEmployees" baseTableSchemaName="${schemaName}"  baseColumnNames="OrganizationID" constraintName="EmlpoyeeProfile_OrganizationID_fk"
+	                                  referencedTableName="EmlpoyeeProfile" referencedTableSchemaName="${schemaName}" referencedColumnNames="EmpID"/>
+	                                  
+	<addForeignKeyConstraint baseTableName="OrganizationEmployees" baseTableSchemaName="${schemaName}"  baseColumnNames="EmpID" constraintName="EmlpoyeeProfile_EmpID_fk"
+	                                  referencedTableName="EmlpoyeeProfile" referencedTableSchemaName="${schemaName}" referencedColumnNames="EmpID"/>
+ 
+ 	<addForeignKeyConstraint baseTableName="EmlpoyeeProfileSkillset" baseTableSchemaName="${schemaName}"  baseColumnNames="EmpID" constraintName="SkillsAndCompetencies_EmpID_fk"
+	                                  referencedTableName="SkillsAndCompetencies" referencedTableSchemaName="${schemaName}" referencedColumnNames="CertificationID"/>
+	                                  
+	<addForeignKeyConstraint baseTableName="EmlpoyeeProfileSkillset" baseTableSchemaName="${schemaName}"  baseColumnNames="CertificationID" constraintName="SkillsAndCompetencies_CertificationID_fk"
+	                                  referencedTableName="SkillsAndCompetencies" referencedTableSchemaName="${schemaName}" referencedColumnNames="CertificationID"/>
+ 
+ 	<addForeignKeyConstraint baseTableName="EmlpoyeeProfileOrgProvidedTrainings" baseTableSchemaName="${schemaName}"  baseColumnNames="EmpID" constraintName="Trainings_EmpID_fk"
+	                                  referencedTableName="Trainings" referencedTableSchemaName="${schemaName}" referencedColumnNames="TrainingID"/>
+	                                  
+	<addForeignKeyConstraint baseTableName="EmlpoyeeProfileOrgProvidedTrainings" baseTableSchemaName="${schemaName}"  baseColumnNames="TrainingID" constraintName="Trainings_TrainingID_fk"
+	                                  referencedTableName="Trainings" referencedTableSchemaName="${schemaName}" referencedColumnNames="TrainingID"/>
+ 
+ 	<addForeignKeyConstraint baseTableName="EmlpoyeeProfileExperience" baseTableSchemaName="${schemaName}"  baseColumnNames="EmpID" constraintName="PreviousCompany_EmpID_fk"
+	                                  referencedTableName="PreviousCompany" referencedTableSchemaName="${schemaName}" referencedColumnNames="PrevCompanyID"/>
+	                                  
+	<addForeignKeyConstraint baseTableName="EmlpoyeeProfileExperience" baseTableSchemaName="${schemaName}"  baseColumnNames="PrevCompanyID" constraintName="PreviousCompany_PrevCompanyID_fk"
+	                                  referencedTableName="PreviousCompany" referencedTableSchemaName="${schemaName}" referencedColumnNames="PrevCompanyID"/>
+ 
+ 	<addForeignKeyConstraint baseTableName="EmlpoyeeProfilePerformance" baseTableSchemaName="${schemaName}"  baseColumnNames="EmpID" constraintName="PerformanceAppraisal_EmpID_fk"
+	                                  referencedTableName="PerformanceAppraisal" referencedTableSchemaName="${schemaName}" referencedColumnNames="EmpID"/>
+	                                  
+	<addForeignKeyConstraint baseTableName="EmlpoyeeProfilePerformance" baseTableSchemaName="${schemaName}"  baseColumnNames="EmpID" constraintName="PerformanceAppraisal_EmpID_fk"
+	                                  referencedTableName="PerformanceAppraisal" referencedTableSchemaName="${schemaName}" referencedColumnNames="EmpID"/>
+ 
+	
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 	<addColumn tableName="EmlpoyeeProfile" schemaName="${schemaName}">
+	    <column name="EmlpoyeeProfilePersonalInformation" type="SERIAL"/>
+	</addColumn>
+	<addForeignKeyConstraint baseTableName="EmlpoyeeProfile" baseColumnNames="EmlpoyeeProfilePersonalInformation" baseTableSchemaName="${schemaName}" constraintName="EmlpoyeeProfile_PersonalInformation_fk" referencedTableName="EmployeePersonalInfo"
+	                                 referencedColumnNames="EmpID" referencedTableSchemaName="${schemaName}"/>
+ 
+	<addColumn tableName="EmlpoyeeProfile" schemaName="${schemaName}">
+	    <column name="EmlpoyeeProfileEmployeedetails" type="SERIAL"/>
+	</addColumn>
+	<addForeignKeyConstraint baseTableName="EmlpoyeeProfile" baseColumnNames="EmlpoyeeProfileEmployeedetails" baseTableSchemaName="${schemaName}" constraintName="EmlpoyeeProfile_Employeedetails_fk" referencedTableName="EmploymentInformation"
+	                                 referencedColumnNames="JobID" referencedTableSchemaName="${schemaName}"/>
+ 
+	<addColumn tableName="EmlpoyeeProfile" schemaName="${schemaName}">
+	    <column name="EmlpoyeeProfileEducationDetails" type="SERIAL"/>
+	</addColumn>
+	<addForeignKeyConstraint baseTableName="EmlpoyeeProfile" baseColumnNames="EmlpoyeeProfileEducationDetails" baseTableSchemaName="${schemaName}" constraintName="EmlpoyeeProfile_EducationDetails_fk" referencedTableName="EducationalBG"
+	                                 referencedColumnNames="EmpID" referencedTableSchemaName="${schemaName}"/>
+ 
+	<addColumn tableName="EmlpoyeeProfile" schemaName="${schemaName}">
+	    <column name="EmlpoyeeProfileEmergencyReachout" type="SERIAL"/>
+	</addColumn>
+	<addForeignKeyConstraint baseTableName="EmlpoyeeProfile" baseColumnNames="EmlpoyeeProfileEmergencyReachout" baseTableSchemaName="${schemaName}" constraintName="EmlpoyeeProfile_EmergencyReachout_fk" referencedTableName="EmergencyContactInfo"
+	                                 referencedColumnNames="EmpID" referencedTableSchemaName="${schemaName}"/>
+ 
+
+ 
+ 
+	    </changeSet>
+</databaseChangeLog>
